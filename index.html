@@ -1,7 +1,8 @@
 <html>
 <head>
   <script>
-    var myElement = document.querySelectorAll(".yt-live-chat-paid-message-renderer:last-child");
+    //var myElement = document.querySelectorAll(".yt-live-chat-paid-message-renderer:last-child");
+    var myElement = document.querySelectorAll(".yt-live-chat-text-message-renderer:last-child");
     
     var observer = new MutationObserver(function(mutations) {
        if (document.contains(myElement)) {
