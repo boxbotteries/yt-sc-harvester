@@ -11,7 +11,7 @@
 
     
     //var myElement = document.querySelectorAll(".yt-live-chat-paid-message-renderer:last-child");
-    /*var myElement = document.querySelectorAll("yt-live-chat-text-message-renderer");
+    var myElement = document.querySelectorAll("yt-live-chat-text-message-renderer");
     
     var observer = new MutationObserver(function(mutations) {
       document.getElementById('mock-console').innerText = "We're in the observer!";
@@ -20,15 +20,11 @@
             document.getElementById('mock-console').innerText = "It's in the DOM!";
             observer.disconnect();
         }
-    }); */
-    
-    $('iframe').on('load', function() {
-      document.getElementById('mock-console').innerText = "We're loaded.";
-      //observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
     });
 
     function wereLoaded() {
       document.getElementById('mock-console').innerText = "We're loaded via onLoad.";
+      observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
     }
     
     $("body").append(myElement); // console.log: It's in the DOM!
