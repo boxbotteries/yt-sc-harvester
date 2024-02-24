@@ -17,6 +17,8 @@
     var myElement = document.querySelectorAll("yt-live-chat-text-message-renderer");
     
     var observer = new MutationObserver(function(mutations) {
+      document.getElementById('mock-console').innerText = "We're in the observer!";
+      
        if (document.contains(myElement)) {
             document.getElementById('mock-console').innerText = "It's in the DOM!";
             observer.disconnect();
@@ -30,7 +32,7 @@
 </head>
 <body>
   <div><p id="mock-console">This is where the text goes.</p></div>
-  <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/live_chat?v=HleC1VkYk90&embed_domain=boxbotteries.github.io" width="600" height="800" onload="observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});"></iframe>
+  <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/live_chat?v=HleC1VkYk90&embed_domain=boxbotteries.github.io" width="600" height="800" onload="function(){ document.getElementById('mock-console').innerText = "We're loaded.";observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});}"></iframe>
 </body>
   
 </html>
