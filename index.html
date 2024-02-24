@@ -1,8 +1,20 @@
 <html>
 <head>
   <script>
+
+    /* var iframe = document.createElement('iframe');
+    iframe.onload = function() { alert('myframe is loaded'); }; // before setting 'src'
+    iframe.src = '...'; 
+    document.body.appendChild(iframe); // add it to wherever you need it in the document 
+    
+    $('iframe').on('load', function() {
+      // do stuff 
+    });*/
+
+
+    
     //var myElement = document.querySelectorAll(".yt-live-chat-paid-message-renderer:last-child");
-    var myElement = document.querySelectorAll(".yt-live-chat-text-message-renderer:last-child");
+    var myElement = document.querySelectorAll("yt-live-chat-text-message-renderer");
     
     var observer = new MutationObserver(function(mutations) {
        if (document.contains(myElement)) {
@@ -11,8 +23,6 @@
         }
     });
     
-    observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
-    
     $("body").append(myElement); // console.log: It's in the DOM!
 
   </script>
@@ -20,7 +30,7 @@
 </head>
 <body>
   <div><p id="mock-console">This is where the text goes.</p></div>
-  <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/live_chat?v=HleC1VkYk90&embed_domain=boxbotteries.github.io" width="600" height="800"></iframe>
+  <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/live_chat?v=HleC1VkYk90&embed_domain=boxbotteries.github.io" width="600" height="800" onload="observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});"></iframe>
 </body>
   
 </html>
