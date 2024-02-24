@@ -1,9 +1,25 @@
 <html>
 <head>
+  <script>
+    var myElement = document.querySelectorAll(".yt-live-chat-paid-message-renderer:last-child");
+    
+    var observer = new MutationObserver(function(mutations) {
+       if (document.contains(myElement)) {
+            document.getElementById('mock-console').innerText = "It's in the DOM!";
+            observer.disconnect();
+        }
+    });
+    
+    observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
+    
+    $("body").append(myElement); // console.log: It's in the DOM!
+
+  </script>
   
 </head>
 <body>
-  <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/live_chat?v=HleC1VkYk90&embed_domain=boxbotteries.github.io" width="480"></iframe>
+  <div><p id="mock-console">This is where the text goes.</p></div>
+  <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/live_chat?v=HleC1VkYk90&embed_domain=boxbotteries.github.io" width="600" height="800"></iframe>
 </body>
   
 </html>
