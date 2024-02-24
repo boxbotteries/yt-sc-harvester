@@ -5,11 +5,8 @@
     /* var iframe = document.createElement('iframe');
     iframe.onload = function() { alert('myframe is loaded'); }; // before setting 'src'
     iframe.src = '...'; 
-    document.body.appendChild(iframe); // add it to wherever you need it in the document 
+    document.body.appendChild(iframe); // add it to wherever you need it in the document  */
     
-    $('iframe').on('load', function() {
-      // do stuff 
-    });*/
 
 
     
@@ -25,6 +22,11 @@
         }
     });
     
+    $('iframe').on('load', function() {
+      document.getElementById('mock-console').innerText = "We're loaded.";
+      observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
+    });
+    
     $("body").append(myElement); // console.log: It's in the DOM!
 
   </script>
@@ -32,7 +34,7 @@
 </head>
 <body>
   <div><p id="mock-console">This is where the text goes.</p></div>
-  <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/live_chat?v=HleC1VkYk90&embed_domain=boxbotteries.github.io" width="600" height="800" onload="function(){ document.getElementById('mock-console').innerText = "We're loaded.";observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});}"></iframe>
+  <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/live_chat?v=HleC1VkYk90&embed_domain=boxbotteries.github.io" width="600" height="800" ></iframe>
 </body>
   
 </html>
