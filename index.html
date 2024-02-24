@@ -11,7 +11,7 @@
 
     
     //var myElement = document.querySelectorAll(".yt-live-chat-paid-message-renderer:last-child");
-    var myElement = document.querySelectorAll("yt-live-chat-text-message-renderer");
+    var myElement = document.querySelectorAll("#mock-console");
     
     var observer = new MutationObserver(function(mutations) {
       document.getElementById('mock-console').innerText = "We're in the observer!";
