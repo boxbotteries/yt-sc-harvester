@@ -11,7 +11,7 @@
 
     
     //var myElement = document.querySelectorAll(".yt-live-chat-paid-message-renderer:last-child");
-    var myElement = document.querySelectorAll("yt-live-chat-text-message-renderer");
+    /*var myElement = document.querySelectorAll("yt-live-chat-text-message-renderer");
     
     var observer = new MutationObserver(function(mutations) {
       document.getElementById('mock-console').innerText = "We're in the observer!";
@@ -20,12 +20,16 @@
             document.getElementById('mock-console').innerText = "It's in the DOM!";
             observer.disconnect();
         }
-    });
+    }); */
     
     $('iframe').on('load', function() {
       document.getElementById('mock-console').innerText = "We're loaded.";
-      observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
+      //observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
     });
+
+    wereLoaded() {
+      document.getElementById('mock-console').innerText = "We're loaded via onLoad.";
+    }
     
     $("body").append(myElement); // console.log: It's in the DOM!
 
@@ -34,7 +38,7 @@
 </head>
 <body>
   <div><p id="mock-console">This is where the text goes.</p></div>
-  <iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/live_chat?v=HleC1VkYk90&embed_domain=boxbotteries.github.io" width="600" height="800" ></iframe>
+  <iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/live_chat?v=HleC1VkYk90&embed_domain=boxbotteries.github.io" width="600" height="800" onLoad="wereLoaded()"></iframe>
 </body>
   
 </html>
